@@ -7,7 +7,7 @@
 var monkey = "Gorilla";
 
 function greetVisitor () {
-    return alert("Hello dear blog reader!");
+    return alert("Hello there!");
 }
 
 
@@ -15,7 +15,7 @@ function greetVisitor () {
 
 
 function talkDirty () {
-    var saying = "Oh, you little VB lover, you";
+    var saying = "Oh, Hi, How are u, I am Dominic";
     return alert(saying);
 }
 alert(saying); // Throws an error
