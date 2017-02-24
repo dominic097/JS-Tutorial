@@ -4,17 +4,40 @@
 
 function makeAjaxCall(url, methodType){
     var promiseObj = new Promise(function(resolve, reject){
+        
         var xhr = new XMLHttpRequest();
+
+        /** The XMLHttpRequest.open() method initializes a request. 
+         *  This method is to be used from JavaScript code; to initialize a request from native code
+         *  xhrReq.open(method, url, async,  user, password);
+         */
         xhr.open(methodType, url, true);
+
+        /**
+         * The XMLHttpRequest.send() method sends the request.
+         * If the requet is asynchronous (which is the default), this method returns as soon as the request is sent.
+         * If the request is synchronous, this method doesn't return until the response has arrived.s
+         */
         xhr.send();
+
+        /**
+         * An EventHandler that is called whenever the readyState attribute changes.
+         * 0   UNSENT  Client has been created. open() not called yet.
+         * 1   OPENED  open() has been called.
+         * 2   HEADERS_RECEIVED    send() has been called, and headers and status are available.
+         * 3   LOADING Downloading; responseText holds partial data.
+         * 4   DONE    The operation is complete. ****
+        */
         xhr.onreadystatechange = function(){
             if (xhr.readyState === 4){
                 if (xhr.status === 200){
                     console.log("xhr done successfully");
                     var resp = xhr.responseText;
                     var respJson = JSON.parse(resp);
+                    // A Promise resolve method
                     resolve(respJson);
                 } else {
+                    // A Promise reject method
                     reject(xhr.status);
                     console.log("xhr failed");
                 }
