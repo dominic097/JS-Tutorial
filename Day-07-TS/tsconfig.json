@@ -1,0 +1,25 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+//      Parse in strict mode and emit "use strict" for each source file
+        "alwaysStrict": true,
+//      Specify module code generation: "None", "CommonJS", "AMD", "System", "UMD", "ES6", or "ES2015".
+        "module": "commonjs",
+//	    Specify ECMAScript target version:
+        "target": "es5",
+//      Raise error on expressions and declarations with an implied any type.
+        "noImplicitAny": false,
+//      Generates corresponding .map file.
+        "sourceMap": false,
+        "noEmit": false
+    },
+//  Module resolution is the process the compiler uses to figure out what an import refers to
+    "moduleResolution": "node",
+    "include": [
+        "./**/*.ts"
+    ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}
